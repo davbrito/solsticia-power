@@ -53,10 +53,15 @@ const services = [
   </p>
 </div>
 
-<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-14 max-w-6xl mx-auto">
   {
     services.map((item) => (
-      <div class="flex gap-4 items-start">
+      <div
+        tabindex="0"
+        class:list={[
+          "flex gap-4 items-start border border-slate-200 rounded-3xl p-4 bg-white transition-all duration-300",
+          "focus:shadow-xl focus:transform focus:scale-110",
+        ]}>
         <div class="mt-1 bg-black rounded-full p-2 w-8 h-8 shrink-0 grid place-items-center">
           <Image
             width={15}

@@ -21,14 +21,6 @@ const sizes = {
   lg: "px-5 py-2.5",
   md: "px-4 py-2",
 };
-
-const styles = {
-  outline: "bg-white border-2 border-black hover:bg-gray-100 text-black ",
-  primary:
-    "bg-orange-500 text-white hover:bg-orange-600 border-2 border-transparent",
-  inverted: "bg-white text-black   border-2 border-transparent",
-  muted: "bg-gray-100 hover:bg-gray-200   border-2 border-transparent",
-};
 ---
 
 <a
@@ -38,8 +30,16 @@ const styles = {
     "rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200",
     block && "w-full",
     sizes[size],
-    styles[style],
     className,
+    style === "outline" &&
+      "bg-white border-2 border-black hover:bg-gray-100 text-black ",
+    style === "primary" && [
+      "bg-orange-500 text-white hover:bg-orange-600 border-2 border-transparent",
+      "focus-visible:ring-orange-300 focus-visible:outline-none focus-visible:ring-offset-0 focus-visible:ring-[3px]",
+    ],
+    style === "inverted" && "bg-white text-black   border-2 border-transparent",
+    style === "muted" &&
+      "bg-gray-100 hover:bg-gray-200 border-2 border-transparent",
   ]}
   ><slot />
 </a>

@@ -26,52 +26,64 @@ publishedBlogEntries.sort(function (a, b) {
       </Fragment>
     </Sectionhead>
     <main class="mt-16">
-      <ul class="grid gap-16 max-w-4xl mx-auto">
-        {
-          publishedBlogEntries.map((blogPostEntry, index) => (
-            <li>
-              <a href={`/blog/${blogPostEntry.slug}`}>
-                <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                  <Picture
-                    src={blogPostEntry.data.image.src}
-                    alt={blogPostEntry.data.image.alt}
-                    sizes="(max-width: 800px) 100vw, 800px"
-                    widths={[200, 400, 800]}
-                    aspectRatio="16:9"
-                    background="#ffffff"
-                    fit="cover"
-                    position="center"
-                    loading={index <= 2 ? "eager" : "lazy"}
-                    decoding={index <= 2 ? "sync" : "async"}
-                    class="w-full rounded-md"
-                  />
-                  <div>
-                    <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
-                      {blogPostEntry.data.category}
-                    </span>
-
-                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
-                      {blogPostEntry.data.title}
-                    </h2>
-
-                    <div class="flex gap-2 mt-3">
-                      <span class="text-gray-400">
-                        {blogPostEntry.data.author}
+      {
+        publishedBlogEntries.length === 0 ? (
+          <Fragment>
+            <p class="text-center text-gray-500 max-w-xl mx-auto">
+              No hay entradas en el blog por el momento 😢.
+            </p>
+            <p class="text-center text-gray-500 max-w-xl mx-auto">
+              Por favor, ¡vuelve pronto para ver nuestras últimas publicaciones
+              sobre energía solar y renovable!
+            </p>
+          </Fragment>
+        ) : (
+          <ul class="grid gap-16 max-w-4xl mx-auto">
+            {publishedBlogEntries.map((blogPostEntry, index) => (
+              <li>
+                <a href={`/blog/${blogPostEntry.slug}`}>
+                  <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+                    <Picture
+                      src={blogPostEntry.data.image.src}
+                      alt={blogPostEntry.data.image.alt}
+                      sizes="(max-width: 800px) 100vw, 800px"
+                      widths={[200, 400, 800]}
+                      aspectRatio="16:9"
+                      background="#ffffff"
+                      fit="cover"
+                      position="center"
+                      loading={index <= 2 ? "eager" : "lazy"}
+                      decoding={index <= 2 ? "sync" : "async"}
+                      class="w-full rounded-md"
+                    />
+                    <div>
+                      <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+                        {blogPostEntry.data.category}
                       </span>
-                      <span class="text-gray-400">• </span>
-                      <time
-                        class="text-gray-400"
-                        datetime={blogPostEntry.data.publishDate.toISOString()}>
-                        {blogPostEntry.data.publishDate.toDateString()}
-                      </time>
+
+                      <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                        {blogPostEntry.data.title}
+                      </h2>
+
+                      <div class="flex gap-2 mt-3">
+                        <span class="text-gray-400">
+                          {blogPostEntry.data.author}
+                        </span>
+                        <span class="text-gray-400">• </span>
+                        <time
+                          class="text-gray-400"
+                          datetime={blogPostEntry.data.publishDate.toISOString()}>
+                          {blogPostEntry.data.publishDate.toDateString()}
+                        </time>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
     </main>
   </Container>
 </Layout>
