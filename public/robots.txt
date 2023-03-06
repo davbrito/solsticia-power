@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: http://solsticia-power.vercel.com/sitemap-index.xml

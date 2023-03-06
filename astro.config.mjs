@@ -6,7 +6,9 @@ import { defineConfig } from "astro/config";
 import process from "node:process";
 
 export default defineConfig({
-  site: process.env.SITE_URL || "http://localhost:3000",
+  site: process.env.VERCEL
+    ? `https://${process.env.VERCEL_URL}`
+    : `http://localhost:3000`,
   integrations: [
     tailwind(),
     image({
