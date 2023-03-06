@@ -1,0 +1,55 @@
+---
+import Contactform from "@components/contactform.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon";
+import { faker } from "@faker-js/faker";
+
+faker.setLocale("es");
+
+const phone = faker.phone.number("+58 412-###-####");
+---
+
+<Container>
+  <Sectionhead titleId="contact" align="left">
+    <Fragment slot="title">Contáctanos</Fragment>
+    <Fragment slot="desc">
+      Si tienes alguna duda o comentario, no dudes en contactarnos.
+    </Fragment>
+  </Sectionhead>
+
+  <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
+    <div>
+      <h2 class="font-medium text-2xl text-gray-800">
+        Contacta con <span class="text-orange-500">Solsticia</span>
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-500 mt-3">
+        ¿Tienes algo que decir? Estamos aquí para ayudar. Llene el formulario o
+        envíe un correo electrónico o llame al teléfono.
+      </p>
+      <div class="mt-5">
+        <div class="flex items-center mt-2 space-x-2 text-gray-600">
+          <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
+          <span>
+            {faker.address.streetAddress()}, {faker.address.city()}, {
+              faker.address.stateAbbr()
+            }
+            {faker.address.zipCode()}
+          </span>
+        </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
+          <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
+            href="mailto:hello@solsticia.com">hello@solsticia.com</a
+          >
+        </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
+          <Icon class="text-gray-400 w-4 h-4" name="uil:phone" /><a
+            href={`tel:${phone}`}>{phone}</a
+          >
+        </div>
+      </div>
+    </div>
+    <div>
+      <Contactform />
+    </div>
+  </div>
+</Container>

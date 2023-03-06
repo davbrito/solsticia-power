@@ -1,0 +1,75 @@
+---
+import Container from "@components/container.astro";
+import Link from "@components/ui/link.astro";
+import Dropdown from "./dropdown.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import { Icon } from "astro-icon";
+import IconifyIcon from "@components/ui/icons/iconify-icon.astro";
+import SunIcon from "@components/ui/icons/sun-icon.astro";
+
+const menuitems = [
+  {
+    title: "Servicios",
+    path: "/#services",
+  },
+  {
+    title: "Nosotros",
+    path: "/#about",
+  },
+  {
+    title: "Precios",
+    path: "/pricing",
+  },
+  {
+    title: "Blog",
+    path: "/blog",
+  },
+  {
+    title: "Contáctanos",
+    path: "/#contact",
+  },
+];
+---
+
+<Container>
+  <header class="flex flex-col lg:flex-row justify-between items-center my-5">
+    <Astronav>
+      <div class="flex w-full lg:w-auto items-center justify-between">
+        <a href="/" class="text-lg inline-flex items-center lg:text-3xl">
+          <SunIcon class="text-orange-500 mr-2" />
+          <span class="font-bold text-slate-800">Solsticia</span><span
+            class="text-slate-500">Power</span
+          >
+        </a>
+        <div class="block lg:hidden">
+          <MenuIcon class="w-4 h-4 text-gray-800" />
+        </div>
+      </div>
+      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+        <ul class="flex flex-col lg:flex-row lg:gap-3">
+          {
+            menuitems.map((item, index) => (
+              <>
+                {/* item.children && (
+                  <Dropdown
+                    title={item.title}
+                    children={item.children}
+                    lastItem={index === menuitems.length - 1}
+                  />
+                ) */}
+
+                <li>
+                  <a
+                    href={item.path}
+                    class="flex lg:px-3 py-2 text-gray-600 hover:text-gray-900">
+                    {item.title}
+                  </a>
+                </li>
+              </>
+            ))
+          }
+        </ul>
+      </MenuItems>
+    </Astronav>
+  </header>
+</Container>

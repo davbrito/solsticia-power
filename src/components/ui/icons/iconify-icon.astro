@@ -1,0 +1,30 @@
+---
+import { Image } from "@astrojs/image/components";
+
+interface Props {
+  name: string;
+  size: number;
+  color?: string;
+  class?: string;
+}
+
+const { color = "#ffffff", size } = Astro.props;
+
+const [family, name] = Astro.props.name.split(":");
+const stringSize = size.toString();
+
+const params = new URLSearchParams({
+  color,
+  width: stringSize,
+  height: stringSize,
+});
+---
+
+<Image
+  class={Astro.props.class}
+  width={size}
+  height={size}
+  format="svg"
+  alt=""
+  src={`https://api.iconify.design/${family}/${name}.svg?${params}`}
+/>

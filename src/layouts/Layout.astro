@@ -1,0 +1,78 @@
+---
+import Footer from "@components/footer.astro";
+import Navbar from "@components/navbar/navbar.astro";
+import "@fontsource/inter/variable.css";
+import { SEO } from "astro-seo";
+
+export interface Props {
+  title: string;
+}
+
+// const { src } = await getImage({
+//   src: "../../assets/hero.png",
+//   width: 800,
+//   height: 742,
+//   format: "avif",
+// });
+// console.log(src);
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+
+const resolvedImageWithDomain = new URL("/og_image.jpg", Astro.site).href;
+
+const { title } = Astro.props;
+
+const ogTitle = "Solsticia Power - Solar Energy for Everyone.";
+
+const makeTitle = title
+  ? title + " | " + "Solsticia Power"
+  : "Solsticia Power - Solar Energy for Everyone";
+---
+
+<!DOCTYPE html>
+<html lang="en" class="focus-within:scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
+    <SEO
+      title={makeTitle}
+      description="Solsticia Power is a innovative solar energy company that is dedicated to providing solar energy to everyone."
+      canonical={canonicalURL}
+      twitter={{
+        creator: "@dv_brito",
+        card: "summary_large_image",
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: ogTitle,
+          image: resolvedImageWithDomain,
+        },
+        image: {
+          alt: "Solsticia Power Homepage Screenshot",
+        },
+      }}
+    />
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+    <Footer />
+    <style is:global>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+
+      svg {
+        display: inline-block;
+      }
+    </style>
+  </body>
+</html>

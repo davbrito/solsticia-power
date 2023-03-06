@@ -1,0 +1,76 @@
+---
+// @ts-ignore
+import { Image } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+
+const services = [
+  {
+    title: "Instalación de paneles solares",
+    icon: "fa6-solid/solar-panel",
+    description:
+      "Ofrecemos servicios de instalación de paneles solares en hogares y negocios para proporcionar energía renovable y reducir los costos de energía.",
+  },
+  {
+    title: "Mantenimiento de sistemas de energía solar",
+    icon: "fa6-solid/screwdriver-wrench",
+    description:
+      "Nuestro equipo de expertos en energía solar ofrece servicios de mantenimiento preventivo y correctivo para garantizar que los sistemas de energía solar funcionen de manera óptima.",
+  },
+  {
+    title: "Consultoria y asesoramiento energético personalizado",
+    icon: "fa6-solid/lightbulb",
+    description:
+      "Ofrecemos asesoramiento energético personalizado para ayudar a nuestros clientes a comprender sus necesidades energéticas y elegir soluciones de energía renovable adecuadas.",
+  },
+  {
+    title: "Sistemas de respaldo de energía",
+    icon: "fa6-solid/battery-full",
+    description:
+      "Ofrecemos soluciones de sistemas de respaldo de energía para asegurarnos de que nuestros clientes tengan energía incluso durante cortes de energía.",
+  },
+  {
+    title: "Servicios de financiamiento",
+    icon: "mdi/bank",
+    description:
+      "Ofrecemos soluciones de financiamiento para que nuestros clientes puedan acceder a nuestros servicios de energía solar de manera más accesible y sin preocupaciones.",
+  },
+  {
+    title: "Venta de equipos de energía solar",
+    icon: "fa6-solid/basket-shopping",
+    description:
+      "Ofrecemos equipos de energía solar de alta calidad a precios competitivos para que nuestros clientes puedan instalar sus propios sistemas de energía solar.",
+  },
+];
+---
+
+<div class="mt-16 md:mt-0">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight" id="services">
+    Nuestros servicios
+  </h2>
+  <p class="text-lg mt-4 text-slate-600">
+    Nuestros servicios están enfocados en brindar soluciones energéticas limpias
+    y renovables a nuestros clientes.
+  </p>
+</div>
+
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+  {
+    services.map((item) => (
+      <div class="flex gap-4 items-start">
+        <div class="mt-1 bg-black rounded-full p-2 w-8 h-8 shrink-0 grid place-items-center">
+          <Image
+            width={15}
+            height={15}
+            format="svg"
+            alt=""
+            src={`https://api.iconify.design/${item.icon}.svg?color=%23ffffff&width=15&height=15`}
+          />
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg">{item.title}</h3>
+          <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+        </div>
+      </div>
+    ))
+  }
+</div>

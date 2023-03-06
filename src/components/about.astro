@@ -1,0 +1,39 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+---
+
+<Container>
+  <Sectionhead align="left" titleId="about">
+    <Fragment slot="title">¿Quiénes somos?</Fragment>
+    <Fragment slot="desc">
+      En <span class="text-orange-600">Solsticia Power</span>, somos un equipo
+      de expertos comprometidos con el uso de energías limpias y renovables.
+      Queremos brindar soluciones energéticas sostenibles y rentables para
+      hogares y empresas, ayudando a proteger nuestro planeta y ahorrar en
+      costos de energía. Nos apasiona lo que hacemos y estamos comprometidos en
+      ofrecer un servicio excepcional a nuestros clientes. Juntos podemos crear
+      un futuro más brillante y limpio.
+    </Fragment>
+  </Sectionhead>
+  <article class="mt-4 px-8">
+    <h3 class="text-3xl font-bold text-gray-900" id="mision">Misión</h3>
+    <p class="text-lg mt-4 text-slate-600 leading-relaxed">
+      Creemos en el potencial de la energía solar como una poderosa fuente de
+      energía renovable y limpia. Tenemos como misión es que cada persona tenga
+      la oportunidad de contribuir a la protección del medio ambiente y a la
+      reducción de las emisiones de carbono, a través del uso de energías
+      limpias y renovables.
+    </p>
+  </article>
+  <article class="mt-4 px-8">
+    <h3 class="text-3xl font-bold text-gray-900" id="vision">Visión</h3>
+    <p class="text-lg mt-4 text-slate-600 leading-relaxed">
+      Nuestra visión es ser una alternativa de energía limpia y renovable a un
+      precio accesible para todos. Ser una empresa líder en el sertor de
+      energias renovables, proveyendo un servicio de alta calidad y realizar
+      avances tecnologicos importantes para el beneficio de nuestros clientes y
+      el medio ambiente.
+    </p>
+  </article>
+</Container>
