@@ -1,11 +1,12 @@
 ---
 import Container from "@components/container.astro";
 import Layout from "@layouts/Layout.astro";
-import { CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 
 // Generate a new path for every collection entry
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
+
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },

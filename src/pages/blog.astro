@@ -1,9 +1,9 @@
 ---
-import { getCollection } from "astro:content";
-import { Picture } from "@astrojs/image/components";
+import { getCollection } from "astro:content"; 
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
+import { Picture } from "astro:assets";
 
 // Filter blog entries with 'draft: false' & date before current date
 const publishedBlogEntries = await getCollection("blog", ({ data }) => {
@@ -48,13 +48,11 @@ publishedBlogEntries.sort(function (a, b) {
                       alt={blogPostEntry.data.image.alt}
                       sizes="(max-width: 800px) 100vw, 800px"
                       widths={[200, 400, 800]}
-                      aspectRatio="16:9"
-                      background="#ffffff"
-                      fit="cover"
-                      position="center"
+                      width={800}
+                      height={450}
                       loading={index <= 2 ? "eager" : "lazy"}
                       decoding={index <= 2 ? "sync" : "async"}
-                      class="w-full rounded-md"
+                      class="w-full rounded-md aspect-video bg-white object-cover object-center"
                     />
                     <div>
                       <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">

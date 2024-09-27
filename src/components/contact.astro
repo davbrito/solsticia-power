@@ -2,13 +2,10 @@
 import Contactform from "@components/contactform.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
-import Layout from "@layouts/Layout.astro";
-import { Icon } from "astro-icon";
-import { faker } from "@faker-js/faker";
+import { fakerES as faker } from "@faker-js/faker";
+import { Icon } from "astro-icon/components";
 
-faker.setLocale("es");
-
-const phone = faker.phone.number("+58 412-###-####");
+const phone = faker.phone.number();
 ---
 
 <Container>
@@ -32,10 +29,12 @@ const phone = faker.phone.number("+58 412-###-####");
         <div class="flex items-center mt-2 space-x-2 text-gray-600">
           <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
           <span>
-            {faker.address.streetAddress()}, {faker.address.city()}, {
-              faker.address.stateAbbr()
-            }
-            {faker.address.zipCode()}
+            {faker.location.streetAddress()}
+            {", "}
+            {faker.location.city()}
+            {", "}
+            {faker.location.state({ abbreviated: true })}
+            {faker.location.zipCode()}
           </span>
         </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
           <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a

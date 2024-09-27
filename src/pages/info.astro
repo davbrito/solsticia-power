@@ -1,0 +1,32 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+
+const generator = Astro.generator;
+
+const date = new Date();
+const dateTime = date.toLocaleDateString("es-VE", {
+  timeZone: "UTC",
+  timeZoneName: "short",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+---
+
+<Layout title="About">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Page Information</Fragment>
+      <Fragment slot="desc"></Fragment>
+    </Sectionhead>
+    <p class="mx-auto prose prose-lg mt-6 text-center">
+      This site was generated on <time datetime={date.toISOString()}
+        >{dateTime}</time
+      > using {generator}.
+    </p>
+  </Container>
+</Layout>
