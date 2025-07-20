@@ -1,0 +1,7 @@
+@import "@fontsource-variable/inter";
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --default-font-family: "Inter Variable", Inter, var(--font-sans);
+}

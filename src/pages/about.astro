@@ -10,25 +10,27 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
   return !data.draft && data.publishDate < new Date();
 });
 ---
-
-<Layout title="About">
+<Layout title="Sobre Nosotros">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">About</Fragment>
-      <Fragment slot="desc">We are a small passionate team.</Fragment>
+      <Fragment slot="title">Sobre Nosotros</Fragment>
+      <Fragment slot="desc">
+        Somos un equipo apasionado por la energía solar y las energías
+        renovables. Nuestro objetivo es hacer que la energía limpia sea
+        accesible para todos.
+      </Fragment>
     </Sectionhead>
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-      <h2 class="font-bold text-3xl text-gray-800">
-        Empowering the world with Astro.
-      </h2>
+      <h2 class="font-bold text-3xl text-gray-800">Conoce a Nuestro Equipo</h2>
       <p class="text-lg leading-relaxed text-slate-500">
-        We're a multi-cultural team from around the world! We come from diverse
-        backgrounds, bringing different personalities, experiences and skills to
-        the job. This is what makes our team so special.
+        ¡Somos un equipo multicultural de todo el mundo! Venimos de diversos
+        orígenes, aportando diferentes personalidades, experiencias y
+        habilidades al trabajo. Esto es lo que hace que nuestro equipo sea tan
+        especial.
       </p>
     </div>
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
+    <div class="grid md:grid-cols-4 gap-10 mx-auto max-w-4xl mt-12">
       {
         publishedTeamMembers.map((teamMemberEntry) => (
           <div class="group">
@@ -40,7 +42,7 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
                 widths={[200, 400]}
                 width={400}
                 height={400}
-                class="w-full rounded-md transition group-hover:-translate-y-1 group-hover:shadow-xl aspect-square bg-white object-cover object-center"
+                class="w-full rounded-xl transition group-hover:-translate-y-1 group-hover:shadow-xl aspect-square bg-white object-cover object-center"
               />
             </div>
 

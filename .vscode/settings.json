@@ -1,3 +1,10 @@
 {
-  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "class:list"]
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class:list"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.formatOnSave": true
 }

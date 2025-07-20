@@ -1,6 +1,7 @@
 ---
 import Container from "@components/container.astro";
 import Layout from "@layouts/Layout.astro";
+import { render } from "astro:content";
 import { type CollectionEntry, getCollection } from "astro:content";
 
 // Generate a new path for every collection entry
@@ -8,7 +9,7 @@ export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
 
   return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
@@ -20,7 +21,7 @@ interface Props {
 // Get the entry directly from the prop on render
 const { entry } = Astro.props;
 const { data } = entry;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <Layout title={data.title}>
