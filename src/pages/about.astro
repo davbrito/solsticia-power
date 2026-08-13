@@ -10,6 +10,7 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
   return !data.draft && data.publishDate < new Date();
 });
 ---
+
 <Layout title="Sobre Nosotros">
   <Container>
     <Sectionhead>
