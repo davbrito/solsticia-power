@@ -1,9 +1,10 @@
 // 1. Import utilities from `astro:content`
 import { glob } from "astro/loaders";
-import { z, defineCollection } from "astro:content";
+import { z } from "astro/zod";
+import { defineCollection } from "astro:content";
 
 // 2. Define your collection(s)
-const blogCollection = defineCollection({ 
+const blogCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/blog" }),
   schema: z.object({
     draft: z.boolean(),

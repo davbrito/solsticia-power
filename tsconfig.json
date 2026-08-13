@@ -1,15 +1,18 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "plugins": [{ "name": "@astrojs/ts-plugin" }],
     "strictNullChecks": true,
-    "baseUrl": "src",
+    "verbatimModuleSyntax": true,
     "paths": {
-      "@lib/*": ["lib/*"],
-      "@utils/*": ["utils/*"],
-      "@components/*": ["components/*"],
-      "@layouts/*": ["layouts/*"],
-      "@assets/*": ["assets/*"],
-      "@pages/*": ["pages/*"]
+      "@lib/*": ["./src/lib/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@pages/*": ["./src/pages/*"]
     }
-  }
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }
