@@ -1,2 +1,4 @@
+allowBuilds:
+  esbuild: false
 patchedDependencies:
   eslint-plugin-astro: patches/eslint-plugin-astro.patch
