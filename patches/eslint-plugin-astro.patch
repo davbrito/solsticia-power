@@ -1,0 +1,13 @@
+diff --git a/package.json b/package.json
+index ff8254913206084802e75451f7a089ca63c31a6f..bbd515522ee637852b8ee9f2a8e585da77eb3303 100644
+--- a/package.json
++++ b/package.json
+@@ -16,7 +16,7 @@
+     "lib"
+   ],
+   "engines": {
+-    "node": "^22.22.3 || ^24.16.0 || >=26.3.0"
++    "node": "^22.22.3 || ^24.15.0 || >=26.3.0"
+   },
+   "scripts": {
+     "prebuild": "npm run -s clean",

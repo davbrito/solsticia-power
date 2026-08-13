@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  eslint-plugin-astro:
+    hash: 432b8842de3acf454b260000c8366e4b523eb8713f9404985de0220c38bf671a
+    path: patches/eslint-plugin-astro.patch
+
 importers:
 
   .:
@@ -68,7 +73,7 @@ importers:
         version: 10.8.1(jiti@2.7.0)
       eslint-plugin-astro:
         specifier: ^3.1.0
-        version: 3.1.0(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@typescript-eslint/parser@8.67.0(eslint@10.8.1(jiti@2.7.0))(typescript@6.0.3))(eslint@10.8.1(jiti@2.7.0))(typescript-eslint@8.67.0(eslint@10.8.1(jiti@2.7.0))(typescript@6.0.3))
+        version: 3.1.0(patch_hash=432b8842de3acf454b260000c8366e4b523eb8713f9404985de0220c38bf671a)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@typescript-eslint/parser@8.67.0(eslint@10.8.1(jiti@2.7.0))(typescript@6.0.3))(eslint@10.8.1(jiti@2.7.0))(typescript-eslint@8.67.0(eslint@10.8.1(jiti@2.7.0))(typescript@6.0.3))
       globals:
         specifier: ^17.11.0
         version: 17.11.0
@@ -4491,7 +4496,7 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
-  eslint-plugin-astro@3.1.0(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@typescript-eslint/parser@8.67.0(eslint@10.8.1(jiti@2.7.0))(typescript@6.0.3))(eslint@10.8.1(jiti@2.7.0))(typescript-eslint@8.67.0(eslint@10.8.1(jiti@2.7.0))(typescript@6.0.3)):
+  eslint-plugin-astro@3.1.0(patch_hash=432b8842de3acf454b260000c8366e4b523eb8713f9404985de0220c38bf671a)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@typescript-eslint/parser@8.67.0(eslint@10.8.1(jiti@2.7.0))(typescript@6.0.3))(eslint@10.8.1(jiti@2.7.0))(typescript-eslint@8.67.0(eslint@10.8.1(jiti@2.7.0))(typescript@6.0.3)):
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.8.1(jiti@2.7.0))
       '@jridgewell/sourcemap-codec': 1.5.5
